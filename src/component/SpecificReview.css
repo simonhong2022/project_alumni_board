@@ -1,0 +1,28 @@
+.content-header{
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.content-title{
+    margin-top: 10px;
+}
+
+
+.content-bootcamp{
+    border-style: groove ;
+    padding: 2px 6px;
+}
+
+.content-nickname{
+    border-style: groove;
+    padding: 2px 6px;
+}
+
+.content-article{
+    border-style: groove ;
+    border-radius: 10px;
+    padding: 0px 30px 100px 30px;
+    margin-bottom: 20px;
+}
