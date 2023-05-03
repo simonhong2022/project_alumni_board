@@ -29,8 +29,8 @@ public class ReviewRepository implements IReviewRepository {
     }
 
     @Override
-    public Review getById(Long id) {
-        Optional<Review> byId = repo.findById(id);
+    public Review getById(String id) {
+        Optional<Review> byId = repo.findById(Long.valueOf(id));
         return byId.orElse(null);
     }
 
@@ -50,10 +50,10 @@ public class ReviewRepository implements IReviewRepository {
     }
 
     @Override
-    public void deleteReview(Long reviewId) {
+    public void deleteReview(String reviewId) {
         try {
             if(reviewId != null) {
-                repo.deleteById(reviewId);
+                repo.deleteById(Long.valueOf(reviewId));
             }
         } catch (EmptyResultDataAccessException ex) {
             log.info("Attempt to delete Review %d that doesn't exist".formatted(reviewId));

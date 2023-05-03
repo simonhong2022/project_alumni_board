@@ -1,14 +1,18 @@
 package se.jfs.hackday.review.review;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="salt_articles")
 public class Review {
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(
+            name = "system-uuid", strategy = "uuid"
+    )
     @Column(name="article_id")
-    private Long id;
+    private String id;
     @Column(name = "bootcamp", nullable = false)
     private String bootcamp;
     @Column(name = "title", nullable = false)
@@ -18,7 +22,7 @@ public class Review {
     @Column(name= "nickname" , nullable = false)
     private String nickname;
 
-    public Review(Long id,String bootcamp, String title, String content, String nickname) {
+    public Review(String id,String bootcamp, String title, String content, String nickname) {
         this.id= id;
         this.bootcamp = bootcamp;
         this.title = title;
@@ -30,11 +34,11 @@ public class Review {
 
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

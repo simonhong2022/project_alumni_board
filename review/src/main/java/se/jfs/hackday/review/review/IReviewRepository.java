@@ -7,13 +7,13 @@ public interface IReviewRepository {
 
     List<Review> listReviews();
 
-    Review getById(Long id);
+    Review getById(String id);
 
     Review saveProduct(Review newReview);
 
     void deleteReview(Review review);
 
-    void deleteReview(Long reviewId);
+    void deleteReview(String reviewId);
 
     List<Review> findReviewByNickname(String nickname);
 

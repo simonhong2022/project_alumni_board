@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:3000")
@@ -21,18 +22,18 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
     @GetMapping
-    ResponseEntity<List<Review>> getAllReviews() {
+    ResponseEntity<List<ReviewResponseDTO>> getAllReviews() {
         List<Review> body = reviewService.getAllReviews();
         logger.info(body.get(0).getContent());
-        return ResponseEntity.ok(body);
+        return ResponseEntity.ok(body.stream().map(ReviewConverter::toResponseDTO).collect(Collectors.toList()));
     }
     @GetMapping(path="{id}")
-    ResponseEntity<Review> getReview(@PathVariable long id) {
+    ResponseEntity<ReviewResponseDTO> getReview(@PathVariable String id) {
         Review reviewById = reviewService.findById(id);
         if (reviewById == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(reviewById);
+        return ResponseEntity.ok(ReviewConverter.toResponseDTO(reviewById));
     }
     /*
     @PostMapping
@@ -58,15 +59,15 @@ public class ReviewController {
     }
      */
     @PostMapping
-    ResponseEntity<Review> createReview(@RequestBody Review newReview, HttpServletRequest req){
-        Review review = reviewService.saveReview(newReview);
+    ResponseEntity<ReviewResponseDTO> createReview(@RequestBody CreateReviewDTO newReview, HttpServletRequest req){
+        Review review = reviewService.saveReview(ReviewConverter.fromDTO(newReview));
         URI location = URI.create((req.getRequestURI() + "/" + review.getId()));
-        return ResponseEntity.created(location).body(review);
+        return ResponseEntity.created(location).body(ReviewConverter.toResponseDTO(review));
     }
     @PatchMapping(path="{id}")
     ResponseEntity<ReviewResponseDTO> patchReview(@RequestBody CreateReviewDTO review, @PathVariable long id) {
         Review rev = ReviewConverter.fromDTO(review);
-        rev.setId(id);
+        rev.setId(String.valueOf(id));
         Review updatedReview = reviewService.updateReviewData(rev);
         if(updatedReview == null) {
             return ResponseEntity.notFound().build();
@@ -74,7 +75,7 @@ public class ReviewController {
         return new ResponseEntity<>(ReviewConverter.toResponseDTO(updatedReview), HttpStatus.ACCEPTED);
     }
     @DeleteMapping(path="{id}")
-    ResponseEntity deleteReview(@PathVariable long id) {
+    ResponseEntity<Review> deleteReview(@PathVariable String id) {
         reviewService.deleteReview(id);
         return ResponseEntity.noContent().build();
     }

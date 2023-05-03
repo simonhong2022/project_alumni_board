@@ -20,7 +20,7 @@ public class ReviewService {
         return reviewRepo.listReviews();
     }
 
-    public Review findById(Long id) {
+    public Review findById(String id) {
         return reviewRepo.getById(id);
     }
 
@@ -56,7 +56,7 @@ public class ReviewService {
         reviewRepo.deleteReview(review);
     }
 
-    public void deleteReview(Long reviewId) {
+    public void deleteReview(String reviewId) {
         reviewRepo.deleteReview(reviewId);
     }
 
