@@ -30,6 +30,7 @@ public class ReviewController {
     @GetMapping(path="{id}")
     ResponseEntity<ReviewResponseDTO> getReview(@PathVariable String id) {
         Review reviewById = reviewService.findById(id);
+        System.out.println("hello");
         if (reviewById == null) {
             return ResponseEntity.notFound().build();
         }
@@ -65,9 +66,9 @@ public class ReviewController {
         return ResponseEntity.created(location).body(ReviewConverter.toResponseDTO(review));
     }
     @PatchMapping(path="{id}")
-    ResponseEntity<ReviewResponseDTO> patchReview(@RequestBody CreateReviewDTO review, @PathVariable long id) {
+    ResponseEntity<ReviewResponseDTO> patchReview(@RequestBody CreateReviewDTO review, @PathVariable String id) {
         Review rev = ReviewConverter.fromDTO(review);
-        rev.setId(String.valueOf(id));
+        rev.setId(id);
         Review updatedReview = reviewService.updateReviewData(rev);
         if(updatedReview == null) {
             return ResponseEntity.notFound().build();

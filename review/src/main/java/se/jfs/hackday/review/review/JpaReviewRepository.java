@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface JpaReviewRepository extends CrudRepository<Review, Long> {
+public interface JpaReviewRepository extends CrudRepository<Review, String> {
 
     List<Review> findByNickname(String nickname);
 
