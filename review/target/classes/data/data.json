@@ -1,0 +1,71 @@
+[
+  {
+    "bootcamp": "JFS",
+    "title": "JFS is great",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Marc"
+  },
+
+  {
+    "bootcamp": "JSFS",
+    "title": "JSFS is great",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Marco"
+  },
+
+  {
+    "bootcamp": "DNFS",
+    "title": "DNFS is great",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Ube"
+  },
+
+  {
+    "bootcamp": "JFS",
+    "title": "Java is great",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Javac"
+  },
+
+  {
+    "bootcamp": "JSFS",
+    "title": "JSFS!",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Script"
+  },
+
+  {
+    "bootcamp": "DNFS",
+    "title": "DNFS is great",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Dot"
+  },
+
+  {
+    "bootcamp": "JFS",
+    "title": "Java coffee",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Coffee"
+  },
+
+  {
+    "bootcamp": "JSFS",
+    "title": "JSFS is the best",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Blue"
+  },
+
+  {
+    "bootcamp": "DNFS",
+    "title": "DNFS is the best",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Net"
+  },
+
+  {
+    "bootcamp": "JFS",
+    "title": "Java! Spring boot!",
+    "content": "Where we learn to not only clean our code, but also our hands",
+    "nickname": "Hulk"
+  }
+]

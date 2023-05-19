@@ -7,13 +7,16 @@ import java.util.List;
 
 @Service
 public class ReviewService {
-
+    @Autowired
+    JpaReviewRepository repo;
     @Autowired
     IReviewRepository reviewRepo;
 
     public ReviewService() {}
-    public ReviewService(IReviewRepository reviewRepo) {
+    public ReviewService(IReviewRepository reviewRepo, JpaReviewRepository repo) {
+
         this.reviewRepo = reviewRepo;
+        this.repo = repo;
     }
 
     List<Review> getAllReviews() {
@@ -24,10 +27,13 @@ public class ReviewService {
         return reviewRepo.getById(id);
     }
 
-    Review saveReview(Review review) {
+    public Review saveReview(Review review) {
         return reviewRepo.saveProduct(review);
     }
 
+    public void saveReviews(List<Review> reviews) {
+        repo.saveAll(reviews);
+    }
     List<Review> findByNickname(String nickname) {
         return reviewRepo.findReviewByNickname(nickname);
     }

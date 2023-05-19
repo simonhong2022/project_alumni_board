@@ -12,9 +12,9 @@ spring:
     ansi:
       enabled: always
   datasource:
-    url: jdbc:postgresql://localhost:5432/board
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://localhost:5432/${PSQL_DB}
+    username: ${PSQL_USER}
+    password: ${PSQL_PASSWORD}
   jpa:
     show-sql: true
     hibernate:

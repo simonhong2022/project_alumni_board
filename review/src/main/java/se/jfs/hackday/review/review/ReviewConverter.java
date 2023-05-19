@@ -3,7 +3,7 @@ package se.jfs.hackday.review.review;
 public class ReviewConverter {
 
     static Review fromDTO(CreateReviewDTO dto) {
-        return new Review(dto.id(), dto.bootcamp(), dto.title(), dto.content(), dto.nickname());
+        return new Review(dto.id(), dto.bootcamp(), dto.titles(), dto.content(), dto.nickname());
     }
 
     static ReviewResponseDTO toResponseDTO(Review entity) {

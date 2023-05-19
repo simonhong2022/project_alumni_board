@@ -15,17 +15,17 @@ public class Review {
     private String id;
     @Column(name = "bootcamp", nullable = false)
     private String bootcamp;
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "titles", nullable = false)
+    private String titles;
     @Column(name = "content", nullable = false)
     private String content;
     @Column(name= "nickname" , nullable = false)
     private String nickname;
 
-    public Review(String id,String bootcamp, String title, String content, String nickname) {
+    public Review(String id,String bootcamp, String titles, String content, String nickname) {
         this.id= id;
         this.bootcamp = bootcamp;
-        this.title = title;
+        this.titles = titles;
         this.content = content;
         this.nickname = nickname;
     }
@@ -43,11 +43,11 @@ public class Review {
     }
 
     public String getTitle() {
-        return title;
+        return titles;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String titles) {
+        this.titles = titles;
     }
 
     public String getContent() {
